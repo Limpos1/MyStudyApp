@@ -5,7 +5,9 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.mymultipurposeapp.data.WordEntry
 import com.example.mymultipurposeapp.data.WordRepository
@@ -84,7 +86,7 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                                         value = isSelected,
                                         onValueChange = {
                                             if (it) selectedTags.add(tag) else selectedTags.remove(tag)
-                                            showWrongMessage = false
+                                            // 틀렸습니다 메시지 유지
                                         }
                                     ) else Modifier
                                 )
@@ -94,8 +96,10 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                     }
 
                     Spacer(modifier = Modifier.height(16.dp))
-                    if (showWrongMessage) {
-                        Text("틀렸습니다. 다시 선택해보세요!", color = MaterialTheme.colorScheme.error)
+                    Box(modifier = Modifier.height(24.dp)) {
+                        if (showWrongMessage) {
+                            Text("틀렸습니다. 다시 선택해보세요!", color = MaterialTheme.colorScheme.error)
+                        }
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(onClick = {
@@ -105,6 +109,7 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                             submitted = false
                             selectedTags.clear()
                             definitionChoices = generateDefinitionChoicesFromEntry(currentWord)
+                            showWrongMessage = false
                         } else {
                             showWrongMessage = true
                             selectedTags.clear()
@@ -118,12 +123,14 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                     Text("단어: ${currentWord!!.word}", style = MaterialTheme.typography.headlineSmall)
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    for (row in 0 until 3) {
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            for (col in 0 until 3) {
-                                val i = row * 3 + col
-                                if (i < definitionChoices.size) {
-                                    val choice = definitionChoices[i]
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        definitionChoices.chunked(3).forEach { rowChoices ->
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                rowChoices.forEach { choice ->
+                                    val i = definitionChoices.indexOf(choice)
                                     val isSelected = selectedDefinitionIndexes.contains(i)
 
                                     val bgColor = when {
@@ -144,13 +151,21 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                                             if (!submitted) {
                                                 if (isSelected) selectedDefinitionIndexes.remove(i)
                                                 else selectedDefinitionIndexes.add(i)
-                                                showWrongMessage = false
+                                                // 틀렸습니다 메시지 유지
                                             }
                                         },
-                                        modifier = Modifier.weight(1f),
+                                        modifier = Modifier
+                                            .weight(1f)
+                                            .height(72.dp),
                                         colors = ButtonDefaults.buttonColors(containerColor = bgColor)
                                     ) {
-                                        Text(choice.text, color = textColor, style = MaterialTheme.typography.bodySmall)
+                                        Text(
+                                            choice.text,
+                                            color = textColor,
+                                            fontSize = 14.sp,
+                                            maxLines = 2,
+                                            textAlign = TextAlign.Start
+                                        )
                                     }
                                 }
                             }
@@ -158,8 +173,10 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                     }
 
                     Spacer(modifier = Modifier.height(16.dp))
-                    if (showWrongMessage) {
-                        Text("틀렸습니다. 다시 선택해보세요!", color = MaterialTheme.colorScheme.error)
+                    Box(modifier = Modifier.height(24.dp)) {
+                        if (showWrongMessage) {
+                            Text("틀렸습니다. 다시 선택해보세요!", color = MaterialTheme.colorScheme.error)
+                        }
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(onClick = {
@@ -174,6 +191,7 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                                 quizState = QuizState.PARTS_OF_SPEECH
                                 submitted = false
                                 selectedDefinitionIndexes.clear()
+                                showWrongMessage = false
                             }
                         } else {
                             showWrongMessage = true
@@ -194,7 +212,6 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                             Text("돌아가기")
                         }
                         Button(onClick = {
-                            // 상태 초기화
                             currentIndex = 0
                             quizState = QuizState.PARTS_OF_SPEECH
                             submitted = false
