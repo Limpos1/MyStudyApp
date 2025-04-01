@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.navigation.NavHostController
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.ui.Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,6 +27,12 @@ fun ScreenWithTopBar(
             )
         }
     ) { innerPadding ->
-        content(innerPadding)
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ){
+            content(innerPadding)
+        }
+
     }
 }
