@@ -3,6 +3,7 @@ package com.example.mymultipurposeapp.data
 val english1WordList = listOf(
     WordEntry(
         word = "present",
+        pronunciation = "프레젠트",
         partsOfSpeech = listOf("명사", "형용사", "동사"),
         definitions = listOf(
             Definition("명사", listOf("선물", "현재")),
@@ -16,6 +17,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "committee",
+        pronunciation = "커미티",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("위원회", "위원들")),
@@ -28,6 +30,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "unemployment",
+        pronunciation = "언임플로이먼트",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("실업", "실직 상태")),
@@ -40,6 +43,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "courier",
+        pronunciation = "커리어",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("택배 기사", "배달원", "심부름꾼", "전달자")),
@@ -51,6 +55,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "significantly",
+        pronunciation = "시그니피컨틀리",
         partsOfSpeech = listOf("부사"),
         definitions = listOf(
             Definition("부사", listOf("상당히","크게","현저히" ,"의미있게", "의미심장하게")),
@@ -62,6 +67,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "resulting",
+        pronunciation = "리잘팅",
         partsOfSpeech = listOf("형용사"),
         definitions = listOf(
             Definition("형용사", listOf("결과로 생기는", "그에 따른")),
@@ -73,6 +79,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "nationwide",
+        pronunciation = "네이션와이드",
         partsOfSpeech = listOf("부사","형용사"),
         definitions = listOf(
             Definition("부사", listOf("전국적으로")),
@@ -85,6 +92,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "relevant",
+        pronunciation = "렐러번트",
         partsOfSpeech = listOf("형용사"),
         definitions = listOf(
             Definition("형용사", listOf("관련 있는", "적절한", "중요한")),
@@ -96,6 +104,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "clauses",
+        pronunciation = "클로즈즈",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("문법적 의미의 절", "조항", "조목")),
@@ -107,6 +116,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "lease",
+        pronunciation = "리스",
         partsOfSpeech = listOf("명사","동사"),
         definitions = listOf(
             Definition("명사", listOf("임대 계약", "임대차 계약")),
@@ -119,6 +129,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "governor",
+        pronunciation = "거버너",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("주지사", "책임자", "이사", "조절 장치")),
@@ -130,6 +141,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "priority",
+        pronunciation = "프라이어러티",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("우선순위", "우선 사항", "우선권")),
@@ -141,6 +153,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "expenses",
+        pronunciation = "익스펜시스",
         partsOfSpeech = listOf("명사"),
         definitions = listOf(
             Definition("명사", listOf("지출", "비용", "경비")),
@@ -152,6 +165,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "estimates",
+        pronunciation = "에스티밋츠",
         partsOfSpeech = listOf("명사","동사"),
         definitions = listOf(
             Definition("명사", listOf("추정치", "예상치")),
@@ -164,6 +178,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "surpass",
+        pronunciation = "서패스",
         partsOfSpeech = listOf("동사"),
         definitions = listOf(
             Definition("동사", listOf("능가하다", "뛰어넘다", "초과하다")),
@@ -175,6 +190,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "acquire",
+        pronunciation = "어콰이어",
         partsOfSpeech = listOf("동사"),
         definitions = listOf(
             Definition("동사", listOf("획득하다", "얻다", "기업을인수하다")),
@@ -186,6 +202,7 @@ val english1WordList = listOf(
     ),
     WordEntry(
         word = "negotiate",
+        pronunciation = "니고시에이트",
         partsOfSpeech = listOf("동사"),
         definitions = listOf(
             Definition("동사", listOf("협상하다", "교섭하다", "조율하다")),

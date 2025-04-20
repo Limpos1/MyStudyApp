@@ -2,6 +2,7 @@ package com.example.mymultipurposeapp.data
 
 data class WordEntry(
     val word: String,
+    val pronunciation: String,
     val partsOfSpeech: List<String>,
     val definitions: List<Definition>,
     val dummyMeanings: List<String>

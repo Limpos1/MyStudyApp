@@ -55,7 +55,7 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
         Column(modifier = Modifier.padding(innerPadding).padding(16.dp)) {
             when (quizState) {
                 QuizState.PARTS_OF_SPEECH -> {
-                    Text("단어: ${currentWord!!.word}", style = MaterialTheme.typography.headlineSmall)
+                    Text("단어: ${currentWord!!.word} [${currentWord.pronunciation}]", style = MaterialTheme.typography.headlineSmall)
                     Spacer(modifier = Modifier.height(16.dp))
 
                     val allParts = listOf("명사", "동사", "형용사", "부사", "전치사", "접속사")
@@ -120,7 +120,7 @@ fun WordStudyQuizScreen(setName: String, navController: NavHostController) {
                 }
 
                 QuizState.DEFINITION -> {
-                    Text("단어: ${currentWord!!.word}", style = MaterialTheme.typography.headlineSmall)
+                    Text("단어: ${currentWord!!.word} [${currentWord.pronunciation}]", style = MaterialTheme.typography.headlineSmall)
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
